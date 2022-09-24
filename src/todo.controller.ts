@@ -8,18 +8,22 @@ import {
   Put,
 } from '@nestjs/common';
 import { CreateTodoDto } from './create-todo.dto';
+import { Todo } from './interfaces/todo.interface';
+import { TodoService } from './todo.service';
 import { UpdateTodoDto } from './updateTodo.dto';
 
 @Controller('todos')
-export class CatsController {
+export class TodoController {
+  constructor(private todoService: TodoService) {}
+
   @Post()
   async create(@Body() createTodoDto: CreateTodoDto) {
-    return `This action adds the new ${createTodoDto} todo`;
+    this.todoService.create(createTodoDto);
   }
 
   @Get()
-  async findAll(): Promise<any[]> {
-    return [];
+  async findAll(): Promise<Todo[]> {
+    return this.todoService.findAll();
   }
 
   @Get(':id')
