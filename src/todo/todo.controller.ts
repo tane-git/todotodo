@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -11,33 +12,47 @@ import { CreateTodoDto } from './dto/create-todo.dto';
 import { Todo } from './interfaces/todo.interface';
 import { TodoService } from './todo.service';
 import { UpdateTodoDto } from './dto/updateTodo.dto';
+import { ApiParam, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('todos')
 @Controller('todos')
 export class TodoController {
   constructor(private todoService: TodoService) {}
 
   @Post()
-  async create(@Body() createTodoDto: CreateTodoDto) {
-    this.todoService.create(createTodoDto);
+  async save(@Body() createTodoDto: CreateTodoDto) {
+    this.todoService.save(createTodoDto);
   }
 
   @Get()
   async findAll(): Promise<Todo[]> {
-    return this.todoService.findAll();
+    return await this.todoService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param() params): string {
-    return `This action returns the #${params.id} todo`;
+  @ApiParam({ name: 'id', type: 'number' })
+  async findOne(
+    @Param('id', ParseIntPipe) id: number,
+    //
+  ) {
+    return await this.todoService.findOne(id);
   }
 
-  @Put('id')
-  update(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
-    return `This action updates the ${id} todo with ${updateTodoDto}`;
+  @Put(':id')
+  @ApiParam({ name: 'id', type: 'number' })
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateTodoDto: UpdateTodoDto,
+  ) {
+    return await this.todoService.update(id, updateTodoDto);
   }
 
-  @Delete('id')
-  remove(@Param('id') id: string) {
-    return `This action removes the ${id} todo`;
+  @Delete(':id')
+  @ApiParam({ name: 'id', type: 'number' })
+  async delete(
+    @Param('id', ParseIntPipe) id: number,
+    //
+  ) {
+    return await this.todoService.delete(id);
   }
 }

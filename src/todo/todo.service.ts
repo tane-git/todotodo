@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/updateTodo.dto';
 import { Todo } from './todo.entity';
 
 @Injectable()
@@ -11,8 +12,8 @@ export class TodoService {
     private todosRepository: Repository<Todo>,
   ) {}
 
-  create(todo: CreateTodoDto) {
-    return this.todosRepository.create(todo);
+  save(todo: CreateTodoDto) {
+    return this.todosRepository.save(todo);
   }
 
   findAll(): Promise<Todo[]> {
@@ -23,7 +24,13 @@ export class TodoService {
     return this.todosRepository.findOneBy({ id });
   }
 
-  async remove(id: string): Promise<void> {
-    await this.todosRepository.delete(id);
+  update(id: number, data: UpdateTodoDto): Promise<UpdateResult> {
+    //? Explicit return type or no:
+    //   update(id: number, data: UpdateTodoDto) {
+    return this.todosRepository.update(id, data);
+  }
+
+  delete(id: number): Promise<DeleteResult> {
+    return this.todosRepository.delete(id);
   }
 }
