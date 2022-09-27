@@ -22,6 +22,7 @@ export class TodoService {
 
     findOne(id: number): Promise<Todo> {
         return this.todosRepository.findOneBy({ id });
+        // if i only wanted title and isComplete, make dto for this and map.
     }
 
     update(id: number, data: UpdateTodoDto): Promise<UpdateResult> {
