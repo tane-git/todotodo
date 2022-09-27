@@ -1,15 +1,15 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateTodoDto {
-  @ApiProperty()
-  label: string;
+    @ApiProperty()
+    label: string;
 
-  @ApiPropertyOptional()
-  isUrgent: boolean;
+    @ApiPropertyOptional()
+    isUrgent: boolean;
 
-  @ApiPropertyOptional()
-  isImportant: boolean;
+    @ApiPropertyOptional()
+    isImportant: boolean;
 
-  @ApiPropertyOptional()
-  isComplete: boolean;
+    @ApiPropertyOptional()
+    isComplete: boolean;
 }

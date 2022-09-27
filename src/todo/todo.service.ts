@@ -7,30 +7,30 @@ import { Todo } from './todo.entity';
 
 @Injectable()
 export class TodoService {
-  constructor(
-    @InjectRepository(Todo)
-    private todosRepository: Repository<Todo>,
-  ) {}
+    constructor(
+        @InjectRepository(Todo)
+        private todosRepository: Repository<Todo>,
+    ) {}
 
-  save(todo: CreateTodoDto) {
-    return this.todosRepository.save(todo);
-  }
+    save(todo: CreateTodoDto) {
+        return this.todosRepository.save(todo);
+    }
 
-  findAll(): Promise<Todo[]> {
-    return this.todosRepository.find();
-  }
+    findAll(): Promise<Todo[]> {
+        return this.todosRepository.find();
+    }
 
-  findOne(id: number): Promise<Todo> {
-    return this.todosRepository.findOneBy({ id });
-  }
+    findOne(id: number): Promise<Todo> {
+        return this.todosRepository.findOneBy({ id });
+    }
 
-  update(id: number, data: UpdateTodoDto): Promise<UpdateResult> {
-    //? Explicit return type or no:
-    //   update(id: number, data: UpdateTodoDto) {
-    return this.todosRepository.update(id, data);
-  }
+    update(id: number, data: UpdateTodoDto): Promise<UpdateResult> {
+        //? Explicit return type or no:
+        //   update(id: number, data: UpdateTodoDto) {
+        return this.todosRepository.update(id, data);
+    }
 
-  delete(id: number): Promise<DeleteResult> {
-    return this.todosRepository.delete(id);
-  }
+    delete(id: number): Promise<DeleteResult> {
+        return this.todosRepository.delete(id);
+    }
 }
