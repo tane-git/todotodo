@@ -1,5 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Todo } from 'src/modules/todo/todo.entity';
+import { Todo } from 'src/todo/todo.entity';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
     type: 'postgres',

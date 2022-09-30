@@ -4,7 +4,7 @@ import { typeOrmConfig } from 'config/typeorm.config';
 import { DataSource } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TodoModule } from './modules/todo/todo.module';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
     imports: [
