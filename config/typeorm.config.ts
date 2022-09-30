@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { Todo } from 'src/modules/todo/todo.entity';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
     type: 'postgres',
@@ -8,10 +9,11 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     password: 'postgres',
     database: 'postgres',
 
+    entities: [Todo],
     // entities: [], // * use autoLoadEntities instead:
-    autoLoadEntities: true,
+    // autoLoadEntities: true,
 
     // migrations: ['./src/database/migrations/*.ts'],
 
-    synchronize: false,
+    // synchronize: false,
 };

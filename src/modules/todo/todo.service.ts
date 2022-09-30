@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { DataSource, DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/updateTodo.dto';
 import { Todo } from './todo.entity';
@@ -8,6 +8,7 @@ import { Todo } from './todo.entity';
 @Injectable()
 export class TodoService {
     constructor(
+        private dataSource: DataSource,
         @InjectRepository(Todo)
         private todosRepository: Repository<Todo>,
     ) {}
@@ -17,10 +18,12 @@ export class TodoService {
         // return null;
 
         //! this line:
-        return this.todosRepository.save(todo);
+        // return this.todosRepository.save(todo);
+        return this.todosRepository.create(todo);
     }
 
     findAll(): Promise<Todo[]> {
+        console.log('finding all...');
         return this.todosRepository.find();
     }
 

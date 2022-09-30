@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 // @Entity({ name: 'Todo', schema: 'todo' })
-@Entity()
+@Entity({ name: 'todo' })
 export class Todo extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    title: string;
+    label: string;
 
     @Column({ default: false })
     isUrgent: boolean;
