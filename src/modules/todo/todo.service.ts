@@ -13,6 +13,10 @@ export class TodoService {
     ) {}
 
     save(todo: CreateTodoDto) {
+        // console.log('todo: ', todo);
+        // return null;
+
+        //! this line:
         return this.todosRepository.save(todo);
     }
 
