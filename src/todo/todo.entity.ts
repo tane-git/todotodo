@@ -1,7 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
-
-// @Entity({ name: 'Todo', schema: 'todo' })
-@Entity({ name: 'todo' })
+@Entity({ name: 'Todo' })
 export class Todo extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
