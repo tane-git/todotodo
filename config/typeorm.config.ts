@@ -9,11 +9,11 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     password: 'postgres',
     database: 'postgres',
 
-    entities: [Todo],
+    // entities: [Todo],
     // entities: [], // * use autoLoadEntities instead:
-    // autoLoadEntities: true,
+    autoLoadEntities: true,
 
     // migrations: ['./src/database/migrations/*.ts'],
 
-    // synchronize: false,
+    synchronize: true,
 };
