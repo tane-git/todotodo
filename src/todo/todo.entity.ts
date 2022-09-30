@@ -6,7 +6,7 @@ export class Todo extends BaseEntity {
     id: number;
 
     @Column()
-    title: string;
+    label: string;
 
     @Column({ default: false })
     isUrgent: boolean;
