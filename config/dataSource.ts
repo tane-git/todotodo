@@ -10,7 +10,7 @@ export const dataSourceOptions: DataSourceOptions = {
     database: 'postgres',
     // entities: ['./src/**/*.entity.ts'],
     entities: [Todo],
-    migrations: ['src/database/migrations/*.ts'],
+    migrations: ['dist/src/database/migrations/*.js'],
 };
 
 export const dataSource = new DataSource(dataSourceOptions);
