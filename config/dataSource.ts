@@ -8,8 +8,7 @@ export const dataSourceOptions: DataSourceOptions = {
     username: 'postgres',
     password: 'postgres',
     database: 'postgres',
-    // entities: ['./src/**/*.entity.ts'],
-    entities: [Todo],
+    entities: ['./src/**/*.entity.ts'],
     migrations: ['dist/src/database/migrations/*.js'],
 };
 
