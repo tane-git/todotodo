@@ -18,7 +18,6 @@ export class TodoService {
     }
 
     findAll(): Promise<Todo[]> {
-        console.log('finding all...');
         return this.todosRepository.find();
     }
 
