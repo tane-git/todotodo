@@ -11,6 +11,7 @@ async function bootstrap() {
         .setDescription('todotodos api docs')
         .setVersion('1.0')
         .addTag('todos')
+        .addTag('users')
         .build();
 
     const document = SwaggerModule.createDocument(app, config);
