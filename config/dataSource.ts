@@ -1,4 +1,3 @@
-import { Todo } from '../src/modules/Todo/todo.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
