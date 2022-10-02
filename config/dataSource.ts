@@ -1,5 +1,3 @@
-import { Todo } from '../src/modules/Todo/todo.entity';
-import { User } from '../src/modules/Users/user.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
@@ -9,8 +7,7 @@ export const dataSourceOptions: DataSourceOptions = {
     username: 'postgres',
     password: 'postgres',
     database: 'postgres',
-    entities: ['src/**/*.entity.ts'],
-    // entities: [Todo, User],
+    entities: ['dist/src/**/*.entity.js'],
     migrations: ['dist/src/database/migrations/*.js'],
 };
 

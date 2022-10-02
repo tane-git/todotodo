@@ -9,5 +9,5 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     // ? autoLoadEnttiies doesnt seem to work:
     // autoLoadEntities: true,
 
-    entities: [Todo, User],
+    // entities: [Todo, User],
 };
