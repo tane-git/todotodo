@@ -14,6 +14,8 @@ export class TodoService {
     ) {}
 
     save(todo: CreateTodoDto) {
+        // ? How do I save the many to many relationship?
+
         return this.todosRepository.save(todo);
     }
 
