@@ -16,7 +16,10 @@ export class User extends BaseEntity {
     @Column()
     name: string;
 
-    @ManyToMany(() => Todo, (todo) => todo.users)
+    @ManyToMany(() => Todo, (todo) => todo.users, {
+        cascade: true,
+    })
     @JoinTable()
-    todos: Todo[];
+    // todos: Todo[];
+    todos: number[];
 }
