@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    BaseEntity,
+    ManyToMany,
+} from 'typeorm';
+import { User } from '../Users/user.entity';
 
 @Entity({ name: 'Todo' })
 export class Todo extends BaseEntity {
@@ -16,4 +23,7 @@ export class Todo extends BaseEntity {
 
     @Column({ default: false })
     isComplete: boolean;
+
+    @ManyToMany(() => User, (user) => user.todos)
+    users: User[];
 }

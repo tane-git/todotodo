@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Todo } from 'src/modules/Todo/todo.entity';
-import { User } from 'src/modules/Users/entities/user.entity';
+import { Todo } from '../src/modules/Todo/todo.entity';
+import { User } from '../src/modules/Users/user.entity';
 import { dataSourceOptions } from './dataSource';
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
